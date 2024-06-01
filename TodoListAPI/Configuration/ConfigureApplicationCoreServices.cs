@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using TodoListAPI.Repositories;
+using TodoListAPI.Services;
 
 namespace TodoListAPI.Configuration
 {
