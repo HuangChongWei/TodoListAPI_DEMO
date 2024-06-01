@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "待辦事項";
+}
+@section CSS{
+        <link rel="stylesheet" href="~/css/todoList.css" />
+}
+
+    <header class="btn-group w-50 my-4">
+        <input type="text" class="add__input w-75" placeholder="待辦事項...">
+        <button class="btn btn-primary add__btn">新增</button>
+    </header>
+    <ul class="content">
+
+    </ul>
+
+
+@section Scripts {
+        <script src="~/js/todoList.js" asp-append-version="true" ></script>
+        <script src="~/lib/axios/axios.min.js" asp-append-version="true"></script>
+}

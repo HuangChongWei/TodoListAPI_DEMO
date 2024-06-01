@@ -1,0 +1,23 @@
+﻿.add__input {
+    padding: 5px;
+}
+
+.todo__item {
+    list-style: none;
+}
+
+.change__btn {
+    position: relative;
+}
+
+.input-group {
+    padding: 5px 16px;
+}
+
+.content {
+    padding: 0;
+}
+
+.unactive {
+    z-index: -1;
+}

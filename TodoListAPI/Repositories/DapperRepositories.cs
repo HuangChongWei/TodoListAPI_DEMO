@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Dapper;
+using System.Collections.Generic;
 using System.Data;
 using TodoListAPI.Entities;
 
@@ -6,11 +7,11 @@ namespace TodoListAPI.Repositories
 {
     public class DapperRepositories
     {
-        private readonly IDbConnection _cnn;
+        private readonly IDbConnection _conn;
 
-        public DapperRepositories(IDbConnection cnn)
+        public DapperRepositories(IDbConnection conn)
         {
-            _cnn = cnn;
+            _conn = conn;
         }
 
         public void Add(string decription)
