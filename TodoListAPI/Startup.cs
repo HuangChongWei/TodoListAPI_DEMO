@@ -9,6 +9,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,6 +33,12 @@ namespace TodoListAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TodoListAPI", Version = "v1" });
+            });
+            services.AddScoped<IDbConnection, SqlConnection>(ServiceProvider =>
+            {
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = Configuration.GetConnectionString("TodoList");
+                return conn;
             });
         }
 
