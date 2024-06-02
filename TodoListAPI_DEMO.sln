@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoListAPI", "TodoListAPI\TodoListAPI.csproj", "{673F8B43-799D-4737-9763-CA9CE012A7C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoListAPI", "TodoListAPI\TodoListAPI.csproj", "{673F8B43-799D-4737-9763-CA9CE012A7C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.FrontStage", "TodoList.FrontStage\TodoList.FrontStage.csproj", "{AEB4561A-5195-423A-892A-2B88B3A4B3A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList.FrontStage", "TodoList.FrontStage\TodoList.FrontStage.csproj", "{AEB4561A-5195-423A-892A-2B88B3A4B3A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

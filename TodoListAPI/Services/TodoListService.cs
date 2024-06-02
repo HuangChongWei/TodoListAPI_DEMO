@@ -5,6 +5,7 @@ using System;
 using TodoListAPI.Entities;
 using TodoListAPI.Repositories;
 using TodoListAPI.Models;
+using System.Security.Claims;
 
 namespace TodoListAPI.Services
 {
@@ -20,20 +21,21 @@ namespace TodoListAPI.Services
 
         }
 
-        public IEnumerable<TodoItemAPIModel> GetAll()
+        public IEnumerable<TodoItemAPIModel> GetAll(int userId)
         {
-            var dbModel = _repository.GetAll();
+            var dbModel = _repository.GetAll(userId);
             var result = _mapper.Map<IEnumerable<TodoItemAPIModel>>(dbModel);
+
             return result;
         }
 
-        public BaseModel Add(string decription)
+        public BaseModel Add(string decription, int userId)
         {
             var result = new BaseModel() { RtnCode = 1 };
 
             try
             {
-                _repository.Add(decription);
+                _repository.Add(decription, userId);
             }
             catch (Exception ex)
             {
@@ -60,12 +62,12 @@ namespace TodoListAPI.Services
             }
             return result;
         }
-        public BaseModel Delete(int id)
+        public BaseModel Delete(int id, int userId)
         {
             var result = new BaseModel { RtnCode = 1 };
             try
             {
-                _repository.Delete(id);
+                _repository.Delete(id, userId);
             }
             catch (Exception ex)
             {
