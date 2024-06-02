@@ -13,6 +13,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using TodoListAPI.Configuration;
 
 namespace TodoListAPI
 {
@@ -40,6 +41,21 @@ namespace TodoListAPI
                 conn.ConnectionString = Configuration.GetConnectionString("TodoList");
                 return conn;
             });
+            services.AddApplicationCoreService();
+
+            //找到所有繼承Profile的類別
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.WithOrigins("https://localhost:44370")
+                                        .AllowAnyHeader()
+                                        .AllowAnyMethod();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +71,8 @@ namespace TodoListAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

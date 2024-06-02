@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using TodoListAPI.Entities;
 using TodoListAPI.Repositories;
+using TodoListAPI.Models;
 
 namespace TodoListAPI.Services
 {

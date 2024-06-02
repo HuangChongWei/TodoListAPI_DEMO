@@ -8,7 +8,7 @@ let headers = {
     "Accept": "application/json"
 }
 
-let apiUrl = 'https://localhost:44375/api/TodoListApi'
+let apiUrl = 'https://localhost:44378/api/TodoListApi'
 
 window.onload = function () {
     rander()
@@ -24,7 +24,6 @@ window.onload = function () {
 }
 
 function rander() {
-    //初始化將localStorage物件新增至畫面
     todoArea.innerHTML = ''
 
     axios({
@@ -127,16 +126,18 @@ function saveData(idx) {
 }
 
 function todoDone(idx) {
-    let todoList = JSON.parse(localStorage.getItem('1'))
-    if (document.querySelector(`[check="${idx}"]`).checked) {
+    var description = document.querySelector(`[todoInput="${idx}"]`).value
+    var isDone = document.querySelector(`[check="${idx}"]`).checked
 
-        todoList[idx].isDone = true
+    //UI
+    if (isDone) {
         document.querySelector(`[edit="${idx}"]`).setAttribute('disabled', '')
     }
     else {
-        todoList[idx].isDone = false
         document.querySelector(`[edit="${idx}"]`).removeAttribute('disabled')
     }
+
+    updateData(idx, description, isDone)
 }
 
 function updateData(id, description, isDone) {
