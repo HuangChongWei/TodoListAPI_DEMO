@@ -23,7 +23,7 @@ namespace TodoListAPI.Services
 
         public IEnumerable<TodoItemAPIModel> GetAll(int userId)
         {
-            var dbModel = _repository.GetAll(userId);
+            var dbModel = _repository.GetTodoItem(userId);
             var result = _mapper.Map<IEnumerable<TodoItemAPIModel>>(dbModel);
 
             return result;

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using TodoListAPI.Entities;
 
 namespace TodoListAPI.Repositories
@@ -38,11 +39,19 @@ namespace TodoListAPI.Repositories
             _conn.Execute(query, param);
         }
 
-        public IEnumerable<TodoItem> GetAll(int userId)
+        public IEnumerable<TodoItem> GetTodoItem(int userId)
         {
             var query = "SELECT * FROM TodoItem WHERE UserId = @UserId";
             var param = new { UserId = userId };
             return _conn.Query<TodoItem>(query, param);
+        }
+
+        public User GetUser(string email)
+        {
+            var query = "SELECT * FROM [User] WHERE Email = @Email";
+            var param = new { Email = email };
+            var result = _conn.Query<User>(query, param);
+            return result.First();
         }
     }
 }

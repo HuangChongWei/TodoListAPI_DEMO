@@ -4,12 +4,13 @@ using TodoListAPI.Models;
 
 namespace TodoListAPI.Mappings
 {
-    public class TodoListProfile : Profile
+    public class MappingProfile : Profile
     {
-        public TodoListProfile()
+        public MappingProfile()
         {
             CreateMap<TodoItem, TodoItemAPIModel>();
             CreateMap<TodoItemAPIModel, TodoItem>();
+            CreateMap<User, UserDto>();
         }
     }
 }

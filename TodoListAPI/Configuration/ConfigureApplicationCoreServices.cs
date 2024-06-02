@@ -10,6 +10,8 @@ namespace TodoListAPI.Configuration
         {
             services.AddScoped(typeof(DapperRepositories));
             services.AddScoped(typeof(TodoListService));
+            services.AddScoped(typeof(LoginService));
+            services.AddScoped(typeof(AuthenticationService));
             return services;
         }
     }
