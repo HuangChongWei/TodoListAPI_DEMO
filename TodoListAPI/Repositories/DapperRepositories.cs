@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using TodoListAPI.Entities;
+using TodoListAPI.Repositories.Interface;
 
 namespace TodoListAPI.Repositories
 {
-    public class DapperRepositories
+    public class DapperRepositories : IRepositories
     {
         private readonly IDbConnection _conn;
 

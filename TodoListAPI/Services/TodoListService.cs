@@ -6,12 +6,13 @@ using TodoListAPI.Entities;
 using TodoListAPI.Repositories;
 using TodoListAPI.Models;
 using System.Security.Claims;
+using TodoListAPI.Repositories.Interface;
 
 namespace TodoListAPI.Services
 {
     public class TodoListService
     {
-        private readonly DapperRepositories _repository;
+        private readonly IRepositories _repository;
         private readonly IMapper _mapper;
 
         public TodoListService(DapperRepositories repository, IMapper mapper)

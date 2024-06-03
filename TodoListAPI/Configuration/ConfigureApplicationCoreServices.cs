@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.DataProtection.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 using TodoListAPI.Repositories;
+using TodoListAPI.Repositories.Interface;
 using TodoListAPI.Services;
 
 namespace TodoListAPI.Configuration
@@ -8,7 +10,7 @@ namespace TodoListAPI.Configuration
     {
         public static IServiceCollection AddApplicationCoreService(this IServiceCollection services)
         {
-            services.AddScoped(typeof(DapperRepositories));
+            services.AddScoped<IRepositories, DapperRepositories>();
             services.AddScoped(typeof(TodoListService));
             services.AddScoped(typeof(LoginService));
             services.AddScoped(typeof(AuthenticationService));
