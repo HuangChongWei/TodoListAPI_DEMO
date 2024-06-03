@@ -11,7 +11,7 @@ namespace TodoListAPI.Configuration
         public static IServiceCollection AddApplicationCoreService(this IServiceCollection services)
         {
             services.AddScoped<IRepositories, DapperRepositories>();
-            services.AddScoped(typeof(TodoListService));
+            services.AddScoped<ITodoListService, TodoListService>();
             services.AddScoped(typeof(LoginService));
             services.AddScoped(typeof(AuthenticationService));
             return services;

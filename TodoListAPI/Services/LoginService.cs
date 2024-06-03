@@ -8,15 +8,16 @@ using TodoListAPI.Repositories;
 using System.Linq;
 using System.Collections.Generic;
 using TodoListAPI.Common;
+using TodoListAPI.Repositories.Interface;
 
 namespace TodoListAPI.Services
 {
     public class LoginService
     {
-        private readonly DapperRepositories _repository;
+        private readonly IRepositories _repository;
         private readonly IMapper _mapper;
 
-        public LoginService(DapperRepositories repository, IMapper mapper)
+        public LoginService(IRepositories repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;

@@ -13,9 +13,9 @@ namespace TodoListAPI.Controllers
     [Authorize]
     public class TodoListApiController : ControllerBase
     {
-        private readonly TodoListService _service;
+        private readonly ITodoListService _service;
 
-        public TodoListApiController(TodoListService service)
+        public TodoListApiController(ITodoListService service)
         {
             _service = service;
         }
@@ -29,7 +29,6 @@ namespace TodoListAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public BaseModel Post(string description)
         {
             // 取得當前使用者 ID

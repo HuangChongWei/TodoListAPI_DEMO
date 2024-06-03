@@ -26,10 +26,9 @@ namespace TodoListAPI.Services
 
             var claims = new[]
             {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.UserName)
-            // 可加入其他 Claim
-        };
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.UserName)
+            };
 
             var token = new JwtSecurityToken(
                 issuer: jwtSettings.Issuer,

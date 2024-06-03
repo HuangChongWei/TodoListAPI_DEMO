@@ -10,12 +10,12 @@ using TodoListAPI.Repositories.Interface;
 
 namespace TodoListAPI.Services
 {
-    public class TodoListService
+    public class TodoListService : ITodoListService
     {
         private readonly IRepositories _repository;
         private readonly IMapper _mapper;
 
-        public TodoListService(DapperRepositories repository, IMapper mapper)
+        public TodoListService(IRepositories repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
